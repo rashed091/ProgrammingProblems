@@ -3,6 +3,6 @@
     "code-runner.clearPreviousOutput": true,
     "code-runner.executorMap": {
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && clang++ -std=c++2a $fileName -o $fileNameWithoutExt -Wall -Wextra -ggdb && $dir$fileNameWithoutExt"
+        "cpp": "cd $dir && clang++ -std=c++2a $fileName -o runner -Wall -Wextra -ggdb && $dirrunner"
     }
 }
