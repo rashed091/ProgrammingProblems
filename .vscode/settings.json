@@ -4,5 +4,8 @@
     "code-runner.executorMap": {
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "cpp": "cd $dir && clang++ -std=c++2a $fileName -o runner -Wall -Wextra -ggdb && $dirrunner"
+    },
+    "files.associations": {
+        "iostream": "cpp"
     }
 }
