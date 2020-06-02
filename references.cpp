@@ -38,6 +38,17 @@ void printVec(std::vector<int> v) {
     }
 }
 
+void findPriceRange(int dist, int& min, int& max) {
+    min = static_cast<int> (dist * 0.08 + 100);
+    max = static_cast<int> (dist * 0.36 + 750);
+}
+
+std::pair<int, int> findPriceRange(int dist) {
+    int min = static_cast<int> (dist * 0.08 + 100);
+    int max = static_cast<int> (dist * 0.36 + 750);
+    return std::make_pair(min, max);
+}
+
 int main() {
     // Course now{"CS106L", { {13, 30}, {14, 30} }, {"Md", "Rashed"} };
 
@@ -54,4 +65,10 @@ int main() {
     lref.push_back(7);
 
     printVec(lref);
+    int dist = 6452;
+    int min, max;
+    findPriceRange(dist, min, max);
+    std::cout << min << " " << max << std::endl;
+    auto p = findPriceRange(dist);
+    std::cout << p.first << " " << p.second << std::endl;
 }
