@@ -33,5 +33,10 @@ int main() {
     std::string raw=  R"(C:\Windows\system32\temp)";
     std::cout << raw << "\n";
 
+    std::string mesg = "My name is Rashed";
+    std::transform(mesg.begin(), mesg.end(), mesg.begin(), [](char ch) { return std::toupper(ch);});
+
+    std::cout << mesg << std::endl;
+
     return 0;
 }
