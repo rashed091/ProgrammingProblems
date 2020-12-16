@@ -32,7 +32,7 @@ int main() {
     s.age = 31;
     s.state = "Kushtia";
 
-    cout << s.name << std::endl;
+    cout << s.name << endl;
 
     // pair and tuple are structs with standardized names
     pair<bool, Student> query_result;
@@ -48,9 +48,9 @@ int main() {
     auto [found, solution] = quadratic(a, b, c);
     if (found) {
         auto [x1, x2] = solution;
-        std::cout << x1 << " "<< x2 << std::endl;
+        cout << x1 << " "<< x2 << endl;
     } else {
-        std::cout << "No Solution!\n";
+        cout << "No Solution!\n";
     }
 
     return 0;
