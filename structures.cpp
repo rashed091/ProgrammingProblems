@@ -1,54 +1,50 @@
 #include<iostream>
 #include<string>
-#include <tuple>
-#include <iterator>
+#include<tuple>
+#include<iterator>
 #include<cmath>
-
-struct Reprot
+using namespace std;
+struct Student
 {
-    std::string date;
-    size_t cases;
-    size_t deaths;
+    string name;
+    size_t age;
+    string state;
     /* data */
 };
 
+void printStudentInfo(Student student) {
+    cout << student.name << " from " << student.state << " (" << student.age << ")" << endl;
+}
 
-std::pair<bool, std::pair<double, double>> quadratic(int a, int b, int c) {
+
+pair<bool, pair<double, double>> quadratic(int a, int b, int c) {
     double D = b*b - 4*a*c;
-    std::pair<double, double> blank;
-    if (D < 0) return std::make_pair(false, blank);
+    pair<double, double> blank;
+    if (D < 0) return make_pair(false, blank);
 
-    std::pair<double, double> answer = std::make_pair((-b + sqrt(D)) / 2, (-b-sqrt(D)) / 2);
-    return std::make_pair(true, answer);
+    pair<double, double> answer = make_pair((-b + sqrt(D)) / 2, (-b-sqrt(D)) / 2);
+    return make_pair(true, answer);
 }
 
 int main() {
-    Reprot current;
-    current.date = "2020-05-15";
-    current.cases = 11000;
-    current.deaths = 298;
+    Student s;
+    s.name = "Rashed";
+    s.age = 31;
+    s.state = "Kushtia";
 
-    std::cout << current.date << std::endl;
+    cout << s.name << std::endl;
 
     // pair and tuple are structs with standardized names
-    std::pair<bool, Reprot> query_result;
+    pair<bool, Student> query_result;
     query_result.first = true;
-    query_result.second = current;
-    Reprot result = query_result.second;
+    query_result.second = s;
+    Student result = query_result.second;
 
-    std::cout << result.cases << std::endl;
+    cout << result.name << endl;
 
-    std::tuple<std::string, size_t, size_t> report;
-    report = std::make_tuple("Rashed", 31, 2020);
-    size_t cases = std::get<1>(report);
-
-    auto [name, age, year] = report;
-    
-    std::cout << cases  << " " << name << std::endl;
-    
     // Quadratic function
     int a, b, c;
-    std::cin >> a >> b >> c;
+    cin >> a >> b >> c;
     auto [found, solution] = quadratic(a, b, c);
     if (found) {
         auto [x1, x2] = solution;
