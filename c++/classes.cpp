@@ -1,48 +1,55 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-class Point {
-    int x, y;
+class Point
+{
+private:
+    /* data */
+    int x_;
+    int y_;
 
-    public:
-    Point(int x = 0, int y = 0) : x{x}, y{y} {}
-
-    int length2() {
-        return x * x + y * y;
-    }
-
+public:
+    Point();
+    ~Point() = default;
+    Point(const Point &copy);
+    Point(const int x, const int y);
+    Point &operator=(const Point &rhs);
+    int get_x() const { return x_; }
+    int get_y() const { return y_; }
+    double Distance(const Point &p) const;
+    void SetLocation(const int x, const int y);
 };
 
-struct Drived;
-struct Base {
-    Base() {
-        cout << "Base::Base" << endl;
-        cout << "I " << (typeid(this) == typeid(Drived *) ? "am" : "am not") << " of type drived" << endl;
+Point::Point()
+{
+    x_ = 0;
+    y_ = 0;
+}
 
-        f();
+Point::Point(const Point &copy)
+{
+    x_ = copy.x_;
+    y_ = copy.y_;
+}
+
+Point &Point::operator=(const Point &rhs)
+{
+    if (this != &rhs)
+    {
+        x_ = rhs.x_;
+        y_ = rhs.y_;
     }
+    return *this;
+}
 
-    virtual void f() {
-        cout << "Base::f" << endl;
-    }
-};
+Point::Point(const int x, const int y) : x_(x), y_(y) {}
 
-struct Drived : Base {
-    Drived() {
-        cout << "Drived::Drived" << endl;
-        cout << "I " << (typeid(this) == typeid(Drived *) ? "am" : "am not") << " of type drived" << endl;
+int main()
+{
+    Point p1(1, 3);
+    Point p2(p1);
+    Point p3;
+    p3 = p2;
 
-        f();
-    }
-
-    virtual void f() {
-        cout << "Drived::f" << endl;
-    }
-};
-
-
-
-int main() {
-    Drived d;
     return 0;
 }
